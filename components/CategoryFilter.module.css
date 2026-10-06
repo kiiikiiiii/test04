@@ -41,3 +41,13 @@
   background: var(--fav);
   border-color: var(--fav);
 }
+
+.add {
+  border-style: dashed;
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.add:hover {
+  background: var(--primary-soft);
+}

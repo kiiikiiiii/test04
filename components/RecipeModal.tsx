@@ -60,30 +60,34 @@ export default function RecipeModal({ recipe, isFavorite, onToggleFavorite, onCl
               />
             </div>
 
-            <ul className={styles.stats}>
-              <li>
-                <strong>{recipe.kcal}</strong>
-                <span>kcal</span>
-              </li>
-              <li>
-                <strong>{recipe.time}분</strong>
-                <span>조리 시간</span>
-              </li>
-              <li>
-                <strong>{recipe.protein}g</strong>
-                <span>단백질</span>
-              </li>
-            </ul>
+            {recipe.kcal !== undefined && (
+              <ul className={styles.stats}>
+                <li>
+                  <strong>{recipe.kcal}</strong>
+                  <span>kcal</span>
+                </li>
+                <li>
+                  <strong>{recipe.time}분</strong>
+                  <span>조리 시간</span>
+                </li>
+                <li>
+                  <strong>{recipe.protein}g</strong>
+                  <span>단백질</span>
+                </li>
+              </ul>
+            )}
 
-            <div className={styles.cols}>
-              <section>
-                <h3>재료</h3>
-                <ul className={styles.ingredients}>
-                  {recipe.ingredients.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </section>
+            <div className={recipe.ingredients.length > 0 ? styles.cols : styles.single}>
+              {recipe.ingredients.length > 0 && (
+                <section>
+                  <h3>재료</h3>
+                  <ul className={styles.ingredients}>
+                    {recipe.ingredients.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </section>
+              )}
               <section>
                 <h3>조리 방법</h3>
                 <ol className={styles.steps}>

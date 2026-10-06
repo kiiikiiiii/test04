@@ -7,9 +7,10 @@ interface Props {
   isFavorite: (id: number) => boolean;
   onToggleFavorite: (id: number) => void;
   onSelect: (id: number) => void;
+  onEdit: (id: number) => void;
 }
 
-export default function RecipeGrid({ recipes, isFavorite, onToggleFavorite, onSelect }: Props) {
+export default function RecipeGrid({ recipes, isFavorite, onToggleFavorite, onSelect, onEdit }: Props) {
   return (
     <section className={styles.grid} aria-live="polite">
       {recipes.map((recipe) => (
@@ -19,6 +20,7 @@ export default function RecipeGrid({ recipes, isFavorite, onToggleFavorite, onSe
           isFavorite={isFavorite(recipe.id)}
           onToggleFavorite={() => onToggleFavorite(recipe.id)}
           onSelect={() => onSelect(recipe.id)}
+          onEdit={recipe.category === "mine" ? () => onEdit(recipe.id) : undefined}
         />
       ))}
     </section>

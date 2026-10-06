@@ -5,9 +5,10 @@ interface Props {
   active: Filter;
   counts: Record<Filter, number>;
   onChange: (category: Filter) => void;
+  onAdd: () => void;
 }
 
-export default function CategoryFilter({ active, counts, onChange }: Props) {
+export default function CategoryFilter({ active, counts, onChange, onAdd }: Props) {
   return (
     <div className={styles.filters} role="group" aria-label="카테고리 필터">
       {CATEGORIES.map((c) => {
@@ -32,6 +33,9 @@ export default function CategoryFilter({ active, counts, onChange }: Props) {
           </button>
         );
       })}
+      <button type="button" className={`${styles.chip} ${styles.add}`} onClick={onAdd}>
+        + 글추가
+      </button>
     </div>
   );
 }

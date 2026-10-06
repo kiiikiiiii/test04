@@ -113,7 +113,12 @@
   gap: 28px;
 }
 
-.cols h3 {
+.single {
+  margin-top: 24px;
+}
+
+.cols h3,
+.single h3 {
   margin: 0 0 12px;
   font-size: 1.05rem;
 }

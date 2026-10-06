@@ -1,4 +1,5 @@
-export type RecipeCategory = "salad" | "protein" | "lowcarb" | "soup" | "snack";
+// "mine": 사용자가 직접 작성한 레시피
+export type RecipeCategory = "salad" | "protein" | "lowcarb" | "soup" | "snack" | "mine";
 
 export type CategoryFilter = "all" | RecipeCategory | "favorites";
 
@@ -9,9 +10,10 @@ export interface Recipe {
   emoji: string;
   color: string;
   description: string;
-  kcal: number;
-  time: number;
-  protein: number;
+  // 직접 작성한 레시피에는 영양 정보가 없다
+  kcal?: number;
+  time?: number;
+  protein?: number;
   ingredients: string[];
   steps: string[];
   tip?: string;
@@ -24,6 +26,7 @@ export const CATEGORIES: { id: CategoryFilter; label: string }[] = [
   { id: "lowcarb", label: "저탄수" },
   { id: "soup", label: "수프·국" },
   { id: "snack", label: "간식" },
+  { id: "mine", label: "내 레시피" },
   { id: "favorites", label: "♥ 즐겨찾기" },
 ];
 
