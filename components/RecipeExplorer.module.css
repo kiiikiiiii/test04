@@ -1,0 +1,23 @@
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 28px 0 8px;
+}
+
+.count {
+  margin: 14px 0 16px;
+  scroll-margin-top: 16px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.empty {
+  margin: 0;
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+}
